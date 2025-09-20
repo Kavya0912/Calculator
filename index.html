@@ -4,10 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Calculator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="calculator">
+    <div class="display-wrap">
+      <div id="history" class="history"></div>
+      <div id="display" class="display">0</div>
+    </div>
 
+    <div class="buttons" id="buttons">
+      <button class="btn btn-gray" data-action="clear">AC</button>
+      <button class="btn btn-gray" data-action="percent">%</button>
+      <button class="btn btn-gray" data-action="delete">⌫</button>
+      <button class="btn btn-orange" data-value="/">÷</button>
+
+      <button class="btn btn-dark" data-value="7">7</button>
+      <button class="btn btn-dark" data-value="8">8</button>
+      <button class="btn btn-dark" data-value="9">9</button>
+      <button class="btn btn-orange" data-value="*">×</button>
+
+      <button class="btn btn-dark" data-value="4">4</button>
+      <button class="btn btn-dark" data-value="5">5</button>
+      <button class="btn btn-dark" data-value="6">6</button>
+      <button class="btn btn-orange" data-value="-">−</button>
+
+      <button class="btn btn-dark" data-value="1">1</button>
+      <button class="btn btn-dark" data-value="2">2</button>
+      <button class="btn btn-dark" data-value="3">3</button>
+      <button class="btn btn-orange" data-value="+">+</button>
+
+      <button class="btn btn-dark" data-value="00">00</button>
+      <button class="btn btn-dark" data-value="0">0</button>
+      <button class="btn btn-dark" data-value=".">.</button>
+      <button class="btn btn-orange" data-action="equals">=</button>
+    </div>
   </main>
 </body>
 </html>
