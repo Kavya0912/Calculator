@@ -12,6 +12,32 @@ const lastChar = () => expr.slice(-1);
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const val = btn.dataset.value;
+    const action = btn.dataset.action;
+
+    if (action === 'clear') {
+      expr = '';
+      historyEl.textContent = '';
+      updateDisplay();
+      return;
+    }
+
+    if (action === 'delete') {
+      expr = expr.slice(0, -1);
+      updateDisplay();
+      return;
+    }
+
+    if (action === 'percent') {
+      if (!expr) return;
+      try {
+        const result = Function('"use strict"; return (' + expr + ')')();
+        expr = String(result / 100);
+        updateDisplay();
+      } catch {
+        showError();
+      }
+      return;
+    }
 
     if (typeof val !== 'undefined') {
       if (isOperator(val)) {
