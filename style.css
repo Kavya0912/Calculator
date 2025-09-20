@@ -1,0 +1,19 @@
+* { 
+    box-sizing: border-box; 
+  }
+html, body { 
+    height: 100%; 
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+.calculator {
+  width: 360px;
+  max-width: 92vw;
+}
