@@ -57,3 +57,34 @@ document.querySelectorAll('.btn').forEach(btn => {
   });
 });
 
+function compute() {
+  if (!expr) return;
+  try {
+    historyEl.textContent = expr;
+    const result = Function('"use strict"; return (' + expr + ')')();
+    if (result === Infinity || result === -Infinity || Number.isNaN(result)) throw 'err';
+    expr = String(result);
+    updateDisplay();
+  } catch {
+    showError();
+  }
+}
+
+function showError() {
+  displayEl.textContent = 'Error';
+  expr = '';
+  historyEl.textContent = '';
+  setTimeout(updateDisplay, 900);
+}
+
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const action = btn.dataset.action;
+    if (action === 'equals') {
+      compute();
+      return;
+    }
+  });
+});
+
+
